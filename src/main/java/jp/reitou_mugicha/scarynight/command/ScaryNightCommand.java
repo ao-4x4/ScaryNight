@@ -53,7 +53,6 @@ public class ScaryNightCommand implements CommandExecutor
                 sender.sendMessage(languageManager.getMessage("scarynight.command.language_changed"));
                 break;
             case "reload":
-                sender.sendMessage(languageManager.getMessage("scarynight.command.reload"));
                 event.reloadSettings(plugin);
                 break;
             default:

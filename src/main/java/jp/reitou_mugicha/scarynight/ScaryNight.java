@@ -65,8 +65,11 @@ public final class ScaryNight extends SimplePlugin
     @Override
     protected void onPluginReload()
     {
+        reloadConfig();
         languageManager.loadLanguageFile();
         event.reloadSettings(this);
+
+        getLogger().info(languageManager.getMessage("scarynight.command.reload"));
     }
 
     private void registerCommands()
