@@ -68,13 +68,17 @@ public class ScaryNightEvent implements Listener
                 switch (entity.getType())
                 {
                     case SKELETON:
+                    case STRAY:
+                    case BOGGED:
                         equipment.setHelmet(ItemCreator.of(CompMaterial.LEATHER_HELMET).enchant(Enchantment.PROTECTION, getRandomLevel(1, 3)).make());
                         equipment.setChestplate(ItemCreator.of(CompMaterial.LEATHER_CHESTPLATE).enchant(Enchantment.PROTECTION, getRandomLevel(1, 3)).make());
                         equipment.setLeggings(ItemCreator.of(CompMaterial.LEATHER_LEGGINGS).enchant(Enchantment.PROTECTION, getRandomLevel(1, 3)).make());
                         equipment.setBoots(ItemCreator.of(CompMaterial.LEATHER_BOOTS).enchant(Enchantment.PROTECTION, getRandomLevel(1, 3)).make());
                         equipment.setItemInMainHand(ItemCreator.of(CompMaterial.BOW).enchant(Enchantment.POWER, getRandomLevel(1, 8)).enchant(Enchantment.INFINITY, 1).make());
                         break;
-                    default:
+                    case ZOMBIE:
+                    case ZOMBIE_VILLAGER:
+                    case HUSK:
                         equipment.setHelmet(ItemCreator.of(CompMaterial.IRON_HELMET).enchant(Enchantment.PROTECTION, getRandomLevel(1, 8)).make());
                         equipment.setChestplate(ItemCreator.of(CompMaterial.IRON_CHESTPLATE).enchant(Enchantment.PROTECTION, getRandomLevel(1, 8)).enchant(Enchantment.FIRE_PROTECTION, getRandomLevel(1, 5)).make());
                         equipment.setLeggings(ItemCreator.of(CompMaterial.IRON_LEGGINGS).enchant(Enchantment.PROTECTION, getRandomLevel(1, 8)).make());
