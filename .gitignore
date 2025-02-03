@@ -1,0 +1,49 @@
+# Compiled class files
+*.class
+
+# Maven target directory
+target/
+
+# Gradle build directory
+.gradle/
+build/
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# Logs and debug output
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*.swn
+
+# Plugin JAR files
+*.jar
+
+# Local configuration files
+config/
+
+# Minecraft server files
+server.jar
+world/
+logs/
+plugins/
+
+# Dependencies
+libs/
+
+# OS-specific files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,11 @@
+name: ScaryNight
+version: '1.0.0'
+main: jp.reitou_mugicha.scarynight.ScaryNight
+api-version: '1.21'
+
+commands:
+  scarynight:
+    description: ScaryNight command
+    permission: scarynight.command
+    aliases:
+    - sn
