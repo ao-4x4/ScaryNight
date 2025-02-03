@@ -3,3 +3,4 @@ language: "ja"
 
 # Settings
 health_multiplier: 3
+dropitem_multiplier: 3

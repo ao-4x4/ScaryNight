@@ -10,6 +10,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.player.PlayerBedEnterEvent;
 import org.bukkit.inventory.EntityEquipment;
@@ -21,6 +22,7 @@ import org.mineacademy.fo.menu.model.ItemCreator;
 import org.mineacademy.fo.remain.CompMaterial;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -30,8 +32,7 @@ public class ScaryNightEvent implements Listener
     private final ScaryNightController controller;
 
     private final int healthMultiplier;
-
-    private final Map<World, Boolean> wasDayMap = new HashMap<>();
+    private final int dropItemMultiplier;
 
     public ScaryNightEvent(ScaryNight plugin)
     {
@@ -39,6 +40,7 @@ public class ScaryNightEvent implements Listener
         this.controller = plugin.getController();
 
         this.healthMultiplier = plugin.getConfig().getInt("health_multiplier");
+        this.dropItemMultiplier = plugin.getConfig().getInt("dropitem_multiplier");
     }
 
     @EventHandler
@@ -88,6 +90,15 @@ public class ScaryNightEvent implements Listener
                         break;
                 }
             }
+        }
+    }
+
+    @EventHandler
+    public void onEntityDeath(EntityDeathEvent event)
+    {
+        if (controller.isScaryNightActive())
+        {
+            event.getDrops().forEach(drop -> drop.setAmount(drop.getAmount() * dropItemMultiplier));
         }
     }
 
