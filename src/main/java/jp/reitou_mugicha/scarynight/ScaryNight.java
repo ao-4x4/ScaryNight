@@ -13,6 +13,7 @@ public final class ScaryNight extends SimplePlugin
 {
     private LanguageManager languageManager;
     private ScaryNightController controller;
+    private ScaryNightEvent event;
 
     @Override
     public void onPluginStart()
@@ -21,6 +22,7 @@ public final class ScaryNight extends SimplePlugin
 
         languageManager = new LanguageManager(this);
         controller = new ScaryNightController(this);
+        event = new ScaryNightEvent(this);
 
         languageManager.loadLanguageFile();
 
@@ -45,7 +47,7 @@ public final class ScaryNight extends SimplePlugin
             }
         }.runTaskTimer(ScaryNight.getInstance(), 0L, 100L);
 
-        getServer().getPluginManager().registerEvents(new ScaryNightEvent(this), this);
+        getServer().getPluginManager().registerEvents(event, this);
         registerCommands();
 
         getLogger().info("ScaryNight is Enabled.");
@@ -59,6 +61,13 @@ public final class ScaryNight extends SimplePlugin
 
     @Override
     public void onPluginLoad() { }
+
+    @Override
+    protected void onPluginReload()
+    {
+        languageManager.loadLanguageFile();
+        event.reloadSettings(this);
+    }
 
     private void registerCommands()
     {
@@ -74,5 +83,10 @@ public final class ScaryNight extends SimplePlugin
     public ScaryNightController getController()
     {
         return controller;
+    }
+
+    public ScaryNightEvent getEvent()
+    {
+        return event;
     }
 }

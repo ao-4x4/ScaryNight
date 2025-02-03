@@ -31,8 +31,8 @@ public class ScaryNightEvent implements Listener
     private final LanguageManager languageManager;
     private final ScaryNightController controller;
 
-    private final int healthMultiplier;
-    private final int dropItemMultiplier;
+    private int healthMultiplier;
+    private int dropItemMultiplier;
 
     public ScaryNightEvent(ScaryNight plugin)
     {
@@ -41,6 +41,11 @@ public class ScaryNightEvent implements Listener
 
         this.healthMultiplier = plugin.getConfig().getInt("health_multiplier");
         this.dropItemMultiplier = plugin.getConfig().getInt("dropitem_multiplier");
+    }
+
+    public void reloadSettings(ScaryNight plugin) {
+        healthMultiplier = plugin.getConfig().getInt("health_multiplier");
+        dropItemMultiplier = plugin.getConfig().getInt("dropitem_multiplier");
     }
 
     @EventHandler

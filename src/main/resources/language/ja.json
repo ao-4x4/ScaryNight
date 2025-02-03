@@ -6,5 +6,6 @@
   "scarynight.command.info": "§6バージョン 1.0.0\n§7- §6作者: reitou_mugicha",
   "scarynight.command.language": "§6選択可能言語:\n§7- §6ja (日本語)\n§7- §6en (英語)",
   "scarynight.command.language_changed": "§6言語を変更しました。",
-  "scarynight.command.help": "§6コマンドの使い方\n§7- §6/scarynight: プラグインの情報を表示します。\n§7- §6/scarynight start: ScaryNightを開始します。\n§7- §6/scarynight end: ScaryNightを停止します。\n§7- §6/scarynight language <言語コード>: 言語を変更します。"
+  "scarynight.command.help": "§6コマンドの使い方\n§7- §6/scarynight: プラグインの情報を表示します。\n§7- §6/scarynight start: ScaryNightを開始します。\n§7- §6/scarynight end: ScaryNightを停止します。\n§7- §6/scarynight language <言語コード>: 言語を変更します。",
+  "scarynight.command.reload": "§6設定を再読み込みしました。",
 }

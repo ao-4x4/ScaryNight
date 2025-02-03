@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ScaryNightTabCompleter implements TabCompleter
 {
-    private final List<String> subCommands = Arrays.asList("start", "end", "language");
+    private final List<String> subCommands = Arrays.asList("start", "end", "language", "reload");
     private final List<String> languages = Arrays.asList("en", "ja");
 
     @Override
