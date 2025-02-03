@@ -101,7 +101,6 @@ public class ScaryNightEvent implements Listener
                 if (new Random().nextInt(10) == 0)
                 {
                     event.getProjectile().setFireTicks(100);
-                    event.getProjectile().setVelocity(event.getProjectile().getVelocity().multiply(2));
                 }
             }
         }
