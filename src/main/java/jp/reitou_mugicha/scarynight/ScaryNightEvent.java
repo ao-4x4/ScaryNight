@@ -33,6 +33,7 @@ public class ScaryNightEvent implements Listener
 
     private int healthMultiplier;
     private int dropItemMultiplier;
+    private float itemDropRate;
 
     public ScaryNightEvent(ScaryNight plugin)
     {
@@ -41,11 +42,13 @@ public class ScaryNightEvent implements Listener
 
         this.healthMultiplier = plugin.getConfig().getInt("health_multiplier");
         this.dropItemMultiplier = plugin.getConfig().getInt("dropitem_multiplier");
+        this.itemDropRate = (float) plugin.getConfig().getDouble("itemdrop_rate");
     }
 
     public void reloadSettings(ScaryNight plugin) {
         healthMultiplier = plugin.getConfig().getInt("health_multiplier");
         dropItemMultiplier = plugin.getConfig().getInt("dropitem_multiplier");
+        itemDropRate = (float) plugin.getConfig().getDouble("itemdrop_rate");
     }
 
     @EventHandler
@@ -70,7 +73,7 @@ public class ScaryNightEvent implements Listener
             if (entity.getEquipment() != null)
             {
                 EntityEquipment equipment = entity.getEquipment();
-                setDropChanceZero(equipment);
+                setDropChance(equipment, itemDropRate);
 
                 switch (entity.getType())
                 {
@@ -122,14 +125,14 @@ public class ScaryNightEvent implements Listener
         }
     }
 
-    private void setDropChanceZero(EntityEquipment equipment)
+    private void setDropChance(EntityEquipment equipment, float rate)
     {
-        equipment.setHelmetDropChance(0.0f);
-        equipment.setChestplateDropChance(0.0f);
-        equipment.setLeggingsDropChance(0.0f);
-        equipment.setBootsDropChance(0.0f);
-        equipment.setItemInMainHandDropChance(0.0f);
-        equipment.setItemInOffHandDropChance(0.0f);
+        equipment.setHelmetDropChance(rate);
+        equipment.setChestplateDropChance(rate);
+        equipment.setLeggingsDropChance(rate);
+        equipment.setBootsDropChance(rate);
+        equipment.setItemInMainHandDropChance(rate);
+        equipment.setItemInOffHandDropChance(rate);
     }
 
     private int getRandomLevel(int min, int max)

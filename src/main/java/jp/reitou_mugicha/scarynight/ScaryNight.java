@@ -60,7 +60,10 @@ public final class ScaryNight extends SimplePlugin
     }
 
     @Override
-    public void onPluginLoad() { }
+    public void onPluginLoad()
+    {
+        saveDefaultConfig();
+    }
 
     @Override
     protected void onPluginReload()
