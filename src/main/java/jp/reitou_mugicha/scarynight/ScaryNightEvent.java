@@ -104,7 +104,7 @@ public class ScaryNightEvent implements Listener
     @EventHandler
     public void onEntityDeath(EntityDeathEvent event)
     {
-        if (controller.isScaryNightActive())
+        if (controller.isScaryNightActive() && !(event.getEntity().getType() == EntityType.PLAYER))
         {
             event.getDrops().forEach(drop -> drop.setAmount(drop.getAmount() * dropItemMultiplier));
         }
